@@ -5,7 +5,7 @@
 ## Global
 
 - [x] package install
-- [ ] router setup
+- [x] router setup
 - [ ] Create Components
 - [ ] Helmet
 - [ ] Get Api
