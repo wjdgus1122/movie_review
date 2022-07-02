@@ -1,3 +1,47 @@
+import styled from "styled-components";
+import { movieNum } from "../../../constants/constant";
+import { MainBanner } from "./MainBanner";
+import { useEffect, useState } from "react";
+import { Loading } from "../../Loading";
+import { movieApi } from "../../../api";
+
 export const Home = () => {
-  return <>Home!</>;
+  const [playing, setPlaying] = useState();
+  const [rated, setRated] = useState();
+  const [upcome, setUpcome] = useState();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const movieData = async () => {
+      try {
+        const {
+          data: { results: playingData },
+        } = await movieApi.nowPlaying();
+        setPlaying(playingData);
+        const {
+          data: { results: ratedData },
+        } = await movieApi.topRated();
+        // =>비구조화 할당 이용시  변수명 변경할때는
+        // 변수명:변경할이름
+        setRated(ratedData);
+
+        const {
+          data: { results: upcomeData },
+        } = await movieApi.upComing();
+        setUpcome(upcomeData);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    movieData();
+  }, []);
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>{playing && <MainBanner playData={playing[movieNum]} />}</>
+      )}
+    </>
+  );
 };

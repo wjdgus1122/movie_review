@@ -13,6 +13,7 @@ const SHeader = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
 `;
 const Logo = styled.h3`
   font-size: 28px;
