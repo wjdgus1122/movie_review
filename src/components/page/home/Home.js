@@ -4,6 +4,7 @@ import { MainBanner } from "./MainBanner";
 import { useEffect, useState } from "react";
 import { Loading } from "../../Loading";
 import { movieApi } from "../../../api";
+import { Movies } from "./Movies";
 
 export const Home = () => {
   const [playing, setPlaying] = useState();
@@ -40,7 +41,16 @@ export const Home = () => {
       {loading ? (
         <Loading />
       ) : (
-        <>{playing && <MainBanner playData={playing[movieNum]} />}</>
+        <>
+          {playing && (
+            <>
+              <MainBanner playData={playing[movieNum]} />
+              <Movies movieData={playing} title="현재 상영 영화" />
+              <Movies movieData={rated} title="인기 영화" />
+              <Movies movieData={upcome} title="상영 예정 영화" />
+            </>
+          )}
+        </>
       )}
     </>
   );
