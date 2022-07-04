@@ -6,23 +6,23 @@
 
 - [x] package install
 - [x] router setup
-- [ ] Create Components
-- [ ] Helmet
-- [ ] Get Api
-- [ ] Container
+- [x] Create Components
+- [x] Helmet
+- [x] Get Api
+- [x] Container
 
 ## Main page
 
-- [ ] Use Effect
-- [ ] try catch
-- [ ] Loading
-- [ ] Header Event
-- [ ] Slide
+- [x] Use Effect
+- [x] try catch
+- [x] Loading
+- [x] Header Event
+- [x] Slide
 
 ## Detail page
 
-- [ ] Detail Page
-- [ ] Video
+- [x] Detail Page
+- [x] Video
 
 ## Search page
 

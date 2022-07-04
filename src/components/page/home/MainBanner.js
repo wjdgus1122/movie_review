@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { imgUrl } from "../../../constants/constant";
 import { mainstyle } from "../../../globalstyled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Banner = styled.div`
   width: 100%;
   height: 80vh;
   padding: ${mainstyle.padding};
-  padding-top: 250px;
+  padding-top: 200px;
   position: relative;
   @media screen and (max-width: 500px) {
     height: 100vh;
@@ -39,6 +42,22 @@ const Desc = styled.div`
     display: none;
   }
 `;
+const Btn = styled.div`
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
 const Box = styled.div`
   width: 100%;
   height: 60%;
@@ -59,6 +78,11 @@ export const MainBanner = ({ playData }) => {
     >
       <Title>{playData.title}</Title>
       <Desc>{playData.overview.slice(0, 150) + "..."}</Desc>
+      <Link to={`/detail/${playData.id}`}>
+        <Btn>
+          바로가기 <FontAwesomeIcon icon={faAngleRight} />
+        </Btn>
+      </Link>
       <Box />
     </Banner>
   );

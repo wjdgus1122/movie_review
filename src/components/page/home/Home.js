@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Loading } from "../../Loading";
 import { movieApi } from "../../../api";
 import { Movies } from "./Movies";
+import { PageTitle } from "../../PageTitle";
 
 export const Home = () => {
   const [playing, setPlaying] = useState();
@@ -38,6 +39,7 @@ export const Home = () => {
   }, []);
   return (
     <>
+      <PageTitle title="Home" />
       {loading ? (
         <Loading />
       ) : (
